@@ -21,4 +21,8 @@ public class Student {
         this.major = major;
         this.courses = courses;
     }
+
+    public boolean hasSameId(Student student) {
+        return this.id.equals(student.id);
+    }
 }
