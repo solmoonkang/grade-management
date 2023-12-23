@@ -22,7 +22,11 @@ public class Student {
         this.courses = courses;
     }
 
-    public boolean hasSameId(Student student) {
+    public boolean hasSameIdWithStudent(Student student) {
         return this.id.equals(student.id);
+    }
+
+    public boolean hasSameId(Long id) {
+        return this.id.equals(id);
     }
 }
