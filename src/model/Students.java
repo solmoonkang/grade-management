@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Students {
 
@@ -15,8 +16,14 @@ public class Students {
         this.students.add(student);
     }
 
+    public Optional<Student> findStudentById(Long id) {
+        return students.stream()
+                .filter(student -> student.hasSameId(id))
+                .findFirst();
+    }
+
     private void isDuplicatedId(Student student) {
-        if (students.stream().anyMatch(existingStudent -> existingStudent.hasSameId(student))) {
+        if (students.stream().anyMatch(existingStudent -> existingStudent.hasSameIdWithStudent(student))) {
             throw new IllegalArgumentException("The student id is duplicated.");
         }
     }
