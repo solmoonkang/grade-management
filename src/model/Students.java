@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Students {
 
@@ -20,6 +21,12 @@ public class Students {
         return students.stream()
                 .filter(student -> student.hasSameId(id))
                 .findFirst();
+    }
+
+    public List<Student> findStudentsByName(String name) {
+        return students.stream()
+                .filter(student -> student.hasSameName(name))
+                .collect(Collectors.toList());
     }
 
     private void isDuplicatedId(Student student) {
