@@ -29,4 +29,8 @@ public class Student {
     public boolean hasSameId(Long id) {
         return this.id.equals(id);
     }
+
+    public boolean hasSameName(String name) {
+        return this.name.equals(name);
+    }
 }
