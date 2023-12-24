@@ -43,9 +43,7 @@ public class Students {
 
     private void isDuplicatedId(Student student) {
         if (students.stream().anyMatch(existingStudent -> existingStudent.hasSameIdWithStudent(student))) {
-            throw new IllegalArgumentException("The student id is duplicated.");
+            throw new IllegalArgumentException("[ERROR] The student id is duplicated.");
         }
     }
-
-    // TODO: 학생의 이름을 생성할 때 문자가 아닐 경우 예외 발생
 }

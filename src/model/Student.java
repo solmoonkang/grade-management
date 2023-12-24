@@ -18,11 +18,10 @@ public class Student {
                    Status status,
                    List<Course> courses) {
         this.id = id;
-        this.name = name;
-        this.grade = grade;
-        // TODO: Major 필드에 대한 유효성 검사도 추가할 수 있습니다. 메서드가 잘못된 문자열을 입력받는 경우 어떻게 처리할지 고려해보자.
+        this.name = validateStudentName(name);
+        this.grade = validateStudentGrade(grade);
         this.major = major;
-        this.status = validateStatus(status);
+        this.status = validateStudentStatus(status);
         this.courses = courses;
     }
 
@@ -34,7 +33,6 @@ public class Student {
         return this.id.equals(id);
     }
 
-    // TODO: hasSameName, hasSameDepartment, hasSameGrade 메서드는 equals 메서드를 오버라이드하여 하나의 메서드로 합칠 수 있다.
     public boolean hasSameName(String name) {
         return this.name.equals(name);
     }
@@ -47,9 +45,23 @@ public class Student {
         return this.grade == grade;
     }
 
-    private Status validateStatus(Status status) {
-        if (!status.isEnrolled() && !status.isAttending() && !status.isLeaveOfAbsence()) {
-            throw new IllegalArgumentException("The status must be either 'ENROLLED', 'ATTENDING', or 'LEAVEOFABSENCE'.");
+    private String validateStudentName(String name) {
+        if (!name.matches("\\p{L}+")) {
+            throw new IllegalArgumentException("[ERROR] Student name should only contain letters.");
+        }
+        return name;
+    }
+
+    private int validateStudentGrade(int grade) {
+        if (grade < 1 || grade > 5) {
+            throw new IllegalArgumentException("[ERROR] Student grade should be between 1 and 5.");
+        }
+        return grade;
+    }
+
+    private Status validateStudentStatus(Status status) {
+        if (!status.isValidStatus()) {
+            throw new IllegalArgumentException("[ERROR] The status must be either 'ENROLLED', 'ATTENDING', or 'LEAVE OF ABSENCE'.");
         }
         return status;
     }
