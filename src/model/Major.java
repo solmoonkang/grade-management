@@ -17,4 +17,21 @@ public enum Major {
         this.department = department;
         this.division = division;
     }
+
+    public static Major getMajorFromString(String department) {
+        return findMatchingMajor(department);
+    }
+
+    private static Major findMatchingMajor(String department) {
+        for (Major major : Major.values()) {
+            if (isEqualDepartment(major, department)) {
+                return major;
+            }
+        }
+        throw new IllegalArgumentException("Invalid department: " + department);
+    }
+
+    private static boolean isEqualDepartment(Major major, String department) {
+        return major.department.equals(department);
+    }
 }
