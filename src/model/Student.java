@@ -37,4 +37,8 @@ public class Student {
     public boolean hasSameDepartment(String department) {
         return this.major.equals(Major.getMajorFromString(department));
     }
+
+    public boolean hasSameGrade(int grade) {
+        return this.grade == grade;
+    }
 }
