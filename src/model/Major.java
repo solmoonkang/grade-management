@@ -28,7 +28,7 @@ public enum Major {
                 return major;
             }
         }
-        throw new IllegalArgumentException("Invalid department: " + department);
+        throw new IllegalArgumentException("[ERROR] Invalid department: " + department);
     }
 
     private static boolean isEqualDepartment(Major major, String department) {

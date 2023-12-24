@@ -17,16 +17,8 @@ public enum Status {
         this.detailStatus = detailStatus;
     }
 
-    public boolean isEnrolled() {
-        return this.generalStatus.equals("신입학");
-    }
-
-    public boolean isAttending() {
-        return this.generalStatus.equals("재학");
-    }
-
-    public boolean isLeaveOfAbsence() {
-        return this.generalStatus.equals("휴학");
+    public boolean isValidStatus() {
+        return isEnrolled() || isAttending() || isLeaveOfAbsence();
     }
 
     public static Status getStatusFromString(String general) {
@@ -39,10 +31,22 @@ public enum Status {
                 return status;
             }
         }
-        throw new IllegalArgumentException("Invalid general status: " + general);
+        throw new IllegalArgumentException("[ERROR] Invalid general status: " + general);
     }
 
     private static boolean isEqualParentStatus(Status status, String general) {
         return status.generalStatus.equals(general);
+    }
+
+    private boolean isEnrolled() {
+        return this.generalStatus.equals("신입학");
+    }
+
+    private boolean isAttending() {
+        return this.generalStatus.equals("재학");
+    }
+
+    private boolean isLeaveOfAbsence() {
+        return this.generalStatus.equals("휴학");
     }
 }
