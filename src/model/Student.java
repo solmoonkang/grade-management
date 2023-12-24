@@ -33,4 +33,8 @@ public class Student {
     public boolean hasSameName(String name) {
         return this.name.equals(name);
     }
+
+    public boolean hasSameDepartment(String department) {
+        return this.major.equals(Major.getMajorFromString(department));
+    }
 }
