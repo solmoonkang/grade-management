@@ -35,11 +35,17 @@ public class Students {
                 .collect(Collectors.toList());
     }
 
-    // TODO: 전공계열별로 학생들을 조회
+    public List<Student> findStudentsByGrade(int grade) {
+        return students.stream()
+                .filter(student -> student.hasSameGrade(grade))
+                .collect(Collectors.toList());
+    }
 
     private void isDuplicatedId(Student student) {
         if (students.stream().anyMatch(existingStudent -> existingStudent.hasSameIdWithStudent(student))) {
             throw new IllegalArgumentException("The student id is duplicated.");
         }
     }
+
+    // TODO: 학생의 이름을 생성할 때 문자가 아닐 경우 예외 발생
 }
