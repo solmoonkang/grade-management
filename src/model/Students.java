@@ -29,6 +29,14 @@ public class Students {
                 .collect(Collectors.toList());
     }
 
+    public List<Student> findStudentsByDepartment(String department) {
+        return students.stream()
+                .filter(student -> student.hasSameDepartment(department))
+                .collect(Collectors.toList());
+    }
+
+    // TODO: 전공계열별로 학생들을 조회
+
     private void isDuplicatedId(Student student) {
         if (students.stream().anyMatch(existingStudent -> existingStudent.hasSameIdWithStudent(student))) {
             throw new IllegalArgumentException("The student id is duplicated.");
