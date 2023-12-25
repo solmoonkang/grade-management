@@ -2,14 +2,14 @@ package model;
 
 public class Course {
 
-    private final String name;
+    private final Lecture lecture;
     private final int credits;
     private final double score;
 
-    public Course(String name,
+    public Course(Lecture lecture,
                   int credits,
                   double score) {
-        this.name = name;
+        this.lecture = lecture;
         this.credits = credits;
         this.score = score;
     }
