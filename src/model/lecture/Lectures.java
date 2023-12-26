@@ -1,5 +1,7 @@
 package model.lecture;
 
+import model.course.Type;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +27,14 @@ public class Lectures {
     public List<Lecture> findLectureByProfessor(String professor) {
         return lectures.stream()
                 .filter(lecture -> lecture.hasSameProfessor(professor))
+                .collect(Collectors.toList());
+    }
+
+    public List<Lecture> findLectureByType(String type) {
+        Type inputType = Type.fromString(type);
+
+        return lectures.stream()
+                .filter(lecture -> lecture.hasSameType(inputType))
                 .collect(Collectors.toList());
     }
 
