@@ -1,4 +1,6 @@
-package model;
+package model.course;
+
+import model.lecture.Lecture;
 
 public class Course {
 
