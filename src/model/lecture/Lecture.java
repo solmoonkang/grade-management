@@ -20,7 +20,16 @@ public class Lecture {
         this.schedule = schedule;
     }
 
+    // TODO: 서로 중복되는 로직에 대한 이슈를 해결해줘야 한다.
     public boolean hasSameName(Lecture lecture) {
         return this.name.equals(lecture.name);
+    }
+
+    public boolean hasSameName(String name) {
+        return this.name.equals(name);
+    }
+
+    public boolean hasSameProfessor(String professor) {
+        return this.professor.equals(professor);
     }
 }
