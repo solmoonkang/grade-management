@@ -38,8 +38,24 @@ public class Lectures {
                 .collect(Collectors.toList());
     }
 
+    public void updateLecture(Lecture newLecture) {
+        Lecture lecture = lectures.stream()
+                .filter(existingLecture -> existingLecture.hasSameName(newLecture))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] Lecture not found with name"));
+
+        isDuplicatedNameExceptSelf(lecture, newLecture);
+        lecture.updateLecture(newLecture);
+    }
+
     private void isDuplicatedName(Lecture newLecture) {
         if (lectures.stream().anyMatch(lecture -> lecture.hasSameName(newLecture))) {
+            throw new IllegalArgumentException("[ERROR] Lecture Name is Duplicated.");
+        }
+    }
+
+    private void isDuplicatedNameExceptSelf(Lecture existLecture, Lecture newLecture) {
+        if (lectures.stream().anyMatch(lecture -> !lecture.equals(existLecture) && lecture.hasSameName(newLecture))) {
             throw new IllegalArgumentException("[ERROR] Lecture Name is Duplicated.");
         }
     }
