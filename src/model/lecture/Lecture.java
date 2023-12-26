@@ -1,10 +1,12 @@
-package model;
+package model.lecture;
+
+import model.course.Type;
 
 public class Lecture {
 
     private final String name;
     private final String professor;
-    private final String type;
+    private final Type type;
     private final String schedule;
 
 
@@ -14,7 +16,11 @@ public class Lecture {
                    String schedule) {
         this.name = name;
         this.professor = professor;
-        this.type = type;
+        this.type = Type.fromString(type);
         this.schedule = schedule;
+    }
+
+    public boolean hasSameName(Lecture lecture) {
+        return this.name.equals(lecture.name);
     }
 }
