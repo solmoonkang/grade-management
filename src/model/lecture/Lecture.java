@@ -32,4 +32,8 @@ public class Lecture {
     public boolean hasSameProfessor(String professor) {
         return this.professor.equals(professor);
     }
+
+    public boolean hasSameType(Type type) {
+        return this.type.equals(type);
+    }
 }
