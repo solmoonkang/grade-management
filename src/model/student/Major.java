@@ -1,4 +1,4 @@
-package model;
+package model.student;
 
 public enum Major {
 

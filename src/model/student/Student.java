@@ -1,4 +1,6 @@
-package model;
+package model.student;
+
+import model.course.Course;
 
 import java.util.List;
 
