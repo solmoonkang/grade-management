@@ -4,10 +4,10 @@ import model.course.Type;
 
 public class Lecture {
 
-    private final String name;
-    private final String professor;
-    private final Type type;
-    private final String schedule;
+    private String name;
+    private String professor;
+    private Type type;
+    private String schedule;
 
 
     public Lecture(String name,
@@ -35,5 +35,11 @@ public class Lecture {
 
     public boolean hasSameType(Type type) {
         return this.type.equals(type);
+    }
+
+    public void updateLecture(Lecture newLecture) {
+        this.name = newLecture.name;
+        this.professor = newLecture.professor;
+        this.type = newLecture.type;
     }
 }
