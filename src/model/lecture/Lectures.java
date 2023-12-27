@@ -14,7 +14,7 @@ public class Lectures {
     }
 
     public void addLecture(Lecture lecture) {
-        isDuplicatedName(lecture);
+        checkDuplicatedNameForNewLecture(lecture);
         lectures.add(lecture);
     }
 
@@ -44,7 +44,7 @@ public class Lectures {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] Lecture not found with name"));
 
-        isDuplicatedNameExceptSelf(lecture, newLecture);
+        checkDuplicatedNameForExistingLecture(lecture, newLecture);
         lecture.updateLecture(newLecture);
     }
 
@@ -57,14 +57,13 @@ public class Lectures {
         lectures.remove(lecture);
     }
 
-    private void isDuplicatedName(Lecture newLecture) {
+    private void checkDuplicatedNameForNewLecture(Lecture newLecture) {
         if (lectures.stream().anyMatch(lecture -> lecture.hasSameName(newLecture))) {
             throw new IllegalArgumentException("[ERROR] Lecture Name is Duplicated.");
         }
     }
 
-    // TODO: 중복되는 로직들에 대한 정리가 필요
-    private void isDuplicatedNameExceptSelf(Lecture existLecture, Lecture newLecture) {
+    private void checkDuplicatedNameForExistingLecture(Lecture newLecture, Lecture existLecture) {
         if (lectures.stream().anyMatch(lecture -> !lecture.equals(existLecture) && lecture.hasSameName(newLecture))) {
             throw new IllegalArgumentException("[ERROR] Lecture Name is Duplicated.");
         }
