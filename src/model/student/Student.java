@@ -20,4 +20,8 @@ public class Student {
     public boolean isIdMatched(Long id) {
         return this.id.equals(id);
     }
+
+    public boolean isNameMatched(String name) {
+        return this.name.equals(name);
+    }
 }
