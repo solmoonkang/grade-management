@@ -16,4 +16,16 @@ public enum Grade {
         this.grade = grade;
         this.score = score;
     }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    private boolean isNumeric(String userInput) {
+        return userInput != null && userInput.matches("[-+]?\\d*\\.?\\d+");
+    }
 }
