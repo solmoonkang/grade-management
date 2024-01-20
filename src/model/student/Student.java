@@ -16,4 +16,8 @@ public class Student {
         this.gender = gender;
         this.grade = grade;
     }
+
+    public boolean isIdMatched(Long id) {
+        return this.id.equals(id);
+    }
 }
