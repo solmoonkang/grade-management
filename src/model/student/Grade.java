@@ -1,5 +1,8 @@
 package model.student;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public enum Grade {
 
     A_PLUS("A+", 5.0), A("A", 4.5),
@@ -21,11 +24,14 @@ public enum Grade {
         return grade;
     }
 
-    public double getScore() {
-        return score;
+    private static boolean isNumeric(String userInput) {
+        return userInput != null && userInput.matches("[-+]?\\d*\\.?\\d+");
     }
 
-    private boolean isNumeric(String userInput) {
-        return userInput != null && userInput.matches("[-+]?\\d*\\.?\\d+");
+    private static Grade getGradeByScore(double score) {
+        return Stream.of(Grade.values())
+                .filter(mark -> mark.score == score)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] Invalid Score: " + score));
     }
 }
