@@ -36,4 +36,8 @@ public class Students {
 
         return new Student(id, name, gender, grade);
     }
+
+    private boolean isNumeric(String userInput) {
+        return userInput.matches("\\d+");
+    }
 }
