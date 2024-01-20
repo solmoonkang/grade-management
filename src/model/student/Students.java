@@ -23,6 +23,10 @@ public class Students {
                 .toList());
     }
 
+    public void removeStudentById(Long id) {
+        students.removeIf(student -> student.isIdMatched(id));
+    }
+
     private Student parseStudentInfo(String studentInfo) {
         String[] infos = studentInfo.split(SPACE);
         Long id = Long.parseLong(infos[0]);
