@@ -37,6 +37,12 @@ public class Students {
         return new Student(id, name, gender, grade);
     }
 
+    private List<Student> searchById(Long id) {
+        return students.stream()
+                .filter(student -> student.isIdMatched(id))
+                .collect(Collectors.toList());
+    }
+
     private List<Student> searchByName(String name) {
         return students.stream()
                 .filter(student -> student.isNameMatched(name))
