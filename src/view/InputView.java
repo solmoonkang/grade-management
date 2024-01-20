@@ -18,7 +18,7 @@ public class InputView {
         return reader.readLine();
     }
 
-    public String inputRemoveStudentInfo() throws IOException {
+    public String inputStudentIdToRemove() throws IOException {
         System.out.println("삭제하고 싶은 학생의 학번을 입력해주세요.");
         return reader.readLine();
     }
