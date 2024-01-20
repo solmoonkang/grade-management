@@ -27,4 +27,9 @@ public class InputView {
         System.out.println("검색하고 싶은 학생의 정보를 입력해주세요.");
         return reader.readLine();
     }
+
+    public String inputExitCommand() throws IOException {
+        System.out.println("종료를 원하시면, '종료'를 입력해주세요.");
+        return reader.readLine();
+    }
 }
