@@ -37,6 +37,12 @@ public class Students {
         return new Student(id, name, gender, grade);
     }
 
+    private List<Student> searchByName(String name) {
+        return students.stream()
+                .filter(student -> student.isNameMatched(name))
+                .collect(Collectors.toList());
+    }
+
     private boolean isNumeric(String userInput) {
         return userInput.matches("\\d+");
     }
