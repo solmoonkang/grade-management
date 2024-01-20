@@ -11,17 +11,13 @@ public enum Grade {
     D_PLUS("D+", 2.0),
     F("F", 0.0);
 
-    private final String grade;
+    private final String mark;
     private final double score;
 
-    Grade(String grade,
+    Grade(String mark,
           double score) {
-        this.grade = grade;
+        this.mark = mark;
         this.score = score;
-    }
-
-    public String getGrade() {
-        return grade;
     }
 
     private static boolean isNumeric(String userInput) {
@@ -30,8 +26,15 @@ public enum Grade {
 
     private static Grade getGradeByScore(double score) {
         return Stream.of(Grade.values())
-                .filter(mark -> mark.score == score)
+                .filter(grade -> grade.score == score)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] Invalid Score: " + score));
+    }
+
+    private static Grade getGradeByMark(String mark) {
+        return Stream.of(Grade.values())
+                .filter(grade -> grade.mark.equals(mark))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] Invalid Mark: " + mark));
     }
 }
