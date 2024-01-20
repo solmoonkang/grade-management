@@ -22,4 +22,9 @@ public class InputView {
         System.out.println("삭제하고 싶은 학생의 학번을 입력해주세요.");
         return reader.readLine();
     }
+
+    public String inputSearchCondition() throws IOException {
+        System.out.println("검색하고 싶은 학생의 정보를 입력해주세요.");
+        return reader.readLine();
+    }
 }
