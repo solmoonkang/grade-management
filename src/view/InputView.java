@@ -17,4 +17,9 @@ public class InputView {
         System.out.println("추가하고 싶은 학생의 이름, 학번, 성별을 입력해주세요.");
         return reader.readLine();
     }
+
+    public String inputRemoveStudentInfo() throws IOException {
+        System.out.println("삭제하고 싶은 학생의 학번을 입력해주세요.");
+        return reader.readLine();
+    }
 }
