@@ -27,6 +27,10 @@ public class Students {
         students.removeIf(student -> student.isIdMatched(id));
     }
 
+    public List<Student> searchStudent(String userInput) {
+        return isNumeric(userInput) ? searchById(Long.parseLong(userInput)) : searchByName(userInput);
+    }
+
     private Student parseStudentInfo(String studentInfo) {
         String[] infos = studentInfo.split(SPACE);
         Long id = Long.parseLong(infos[0]);
