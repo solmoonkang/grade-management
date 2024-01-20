@@ -1,6 +1,5 @@
 package model.student;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public enum Grade {
@@ -18,6 +17,10 @@ public enum Grade {
           double score) {
         this.mark = mark;
         this.score = score;
+    }
+
+    public static Grade getGradeByInput(String userInput) {
+        return isNumeric(userInput) ? getGradeByScore(Double.parseDouble(userInput)) : getGradeByMark(userInput);
     }
 
     private static boolean isNumeric(String userInput) {
