@@ -18,6 +18,11 @@ public class InputView {
         return reader.readLine();
     }
 
+    public String inputStudentNameToAdd() throws IOException {
+        System.out.println("추가하고 싶은 학생의 이름을 입력해주세요.");
+        return reader.readLine();
+    }
+
     public String inputStudentIdToRemove() throws IOException {
         System.out.println("삭제하고 싶은 학생의 학번을 입력해주세요.");
         return reader.readLine();
