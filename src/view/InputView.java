@@ -13,9 +13,8 @@ public class InputView {
         return reader.readLine();
     }
 
-    public String inputStudentInfo() throws IOException {
-        System.out.println("추가하고 싶은 학생의 학번, 이름, 성별, 성적을 입력해주세요.(입력 형식: [학번 이름 성별 성적])");
-        System.out.println("학생들을 더 추가할 경우 ','를 통해서 구분해주세요.(입력 형식: [학생 1], [학생 2], [학생 3], ...)");
+    public String inputStudentIdToAdd() throws IOException {
+        System.out.println("추가하고 싶은 학생의 학번을 입력해주세요.");
         return reader.readLine();
     }
 
